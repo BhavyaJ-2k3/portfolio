@@ -2,7 +2,7 @@ import express from "express";
 import nodemailer from "nodemailer";
 
 const router = express.Router();
-// router.get("/", (req, res) => res.send("Contact route is reachable!"));
+router.get("/", (req, res) => res.send("Contact route is reachable!"));
 router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
