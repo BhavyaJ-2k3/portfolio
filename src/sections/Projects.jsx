@@ -5,7 +5,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/api/projects")
+    fetch("https://portfolio-ix4r.onrender.com/api/contact")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
@@ -18,14 +18,18 @@ const Projects = () => {
   }, []);
 
   return (
-    <section data-theme="dark-orange" id="projects" className=" min-w-screen bg-bg-secondary px-4 md:px-8 py-16">
+    <section
+      data-theme="dark-orange"
+      id="projects"
+      className=" min-w-screen bg-bg-secondary px-4 md:px-8 py-16"
+    >
       <div className="max-w-6xl mx-auto flex flex-col items-center space-y-12 px-6">
         <h1 className="text-4xl font-bold text-center mb-4">Projects</h1>
-        
+
         <p className="text-center text-secondtext mb-14">
           A few things I’ve built recently
         </p>
-        
+
         {loading && (
           <p className="text-center text-secondtext mb-8">
             Loading projects...
@@ -33,9 +37,7 @@ const Projects = () => {
         )}
 
         {!loading && projects.length === 0 && (
-          <p className="text-center text-secondtext mb-8">
-            No projects found
-          </p>
+          <p className="text-center text-secondtext mb-8">No projects found</p>
         )}
 
         {!loading && projects.length > 0 && (
@@ -45,9 +47,7 @@ const Projects = () => {
                 key={project._id}
                 className="bg-card-bg p-6 rounded-2xl border border-border-color"
               >
-                <h2 className="text-xl font-semibold mb-3">
-                  {project.title}
-                </h2>
+                <h2 className="text-xl font-semibold mb-3">{project.title}</h2>
 
                 <p className="text-secondtext mb-4 text-sm">
                   {project.description}
@@ -77,7 +77,6 @@ const Projects = () => {
           </div>
         )}
       </div>
-
     </section>
   );
 };
