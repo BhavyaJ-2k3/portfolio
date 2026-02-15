@@ -5,7 +5,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://portfolio-ix4r.onrender.com/api/contact")
+    fetch("https://portfolio-ix4r.onrender.com/api/projects")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
